@@ -1,0 +1,19 @@
+{% extends 'base.html'%} {%block content%}
+<h2>Your Sandwich Recommendation:</h2>
+<h3 class="sandwich">
+  {{meat|title}} on {{bread|title}} bread with {{cheese|title}},
+  {{veggie|title}}, and {{condiment|title}}
+</h3>
+
+<a href="/sandwich/random/">
+  <button type="button">New Random Sandwich</button>
+</a>
+
+<br />
+<br />
+
+<a href="/sandwich/">
+  <button type="button">Go Back to Ingrediants</button>
+</a>
+
+{%endblock%}

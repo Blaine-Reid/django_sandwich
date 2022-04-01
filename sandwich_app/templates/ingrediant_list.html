@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {%block content%}
+
+<h2 class="title">{{ingrediant|title}}</h2>
+<div class="wrapper">
+  <ul class="list">
+    {% for ingrediant in ingrediants %}
+    <li class="list-item">{{ingrediant}}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+<a href="/sandwich">
+  <button type="button">Back to our Ingrediants</button>
+</a>
+
+{%endblock%}

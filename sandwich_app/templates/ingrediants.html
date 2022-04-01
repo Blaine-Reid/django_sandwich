@@ -1,0 +1,16 @@
+{% extends 'base.html'%} {%block content%}
+<h2 class="sub">Ingrediants</h2>
+
+<!-- Loop through menu dict -->
+<ul class="list">
+  {% for ingrediant in menu %}
+  <li>
+    <a href="{% url 'ingrediant' ingrediant %}">{{ingrediant}}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<a href="/sandwich/random/">
+  <button type="button">Make A Random Sandwich</button>
+</a>
+{%endblock%}
