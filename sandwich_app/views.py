@@ -14,14 +14,14 @@ menu ={
 # Create your views here.
 class IndexView(View):
     def get(self,request):
-    
+
         return render(request=request, template_name='index.html')
 
 
 class SandwichView(View):
     def get(self, request):
         return render(
-            request=request, 
+            request=request,
             template_name='ingrediants.html',
             context={'menu':menu.keys()}
             )
@@ -30,13 +30,19 @@ class SandwichView(View):
 class IngrediantView(View):
     def get(self, request, ingrediant):
         if request.method == "GET":
-            return render(
-                request=request, 
-                template_name='ingrediant_list.html', 
-                context={
-                    'ingrediant':ingrediant,
-                    'ingrediants':menu[ingrediant]
-                    })
+            if ingrediant in menu:
+                return render(
+                    request=request,
+                    template_name='ingrediant_list.html',
+                    context={
+                        'ingrediant':ingrediant,
+                        'ingrediants':menu[ingrediant]
+                        })
+            else:
+                return render(
+                    request=request,
+                    template_name='404.html',
+                )
 
 
 class RandomView(View):
@@ -51,7 +57,9 @@ class RandomView(View):
 
         if request.method == 'GET':
             return render(
-                request=request, 
-                template_name='random.html', 
+                request=request,
+                template_name='random.html',
                 context= context
             )
+
+
